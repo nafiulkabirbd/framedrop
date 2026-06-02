@@ -20,7 +20,7 @@ FrameDrop is a lightweight, responsive, and user-friendly web application design
 
 ## 🛠️ Tech Stack
 
-- **HTML5** (Structure & Canvas API)
+- **HTML5** (Structure & Canvas)
 - **CSS3** (Modern, responsive UI/UX styling)
 - **JavaScript (Vanilla)** (File handling, DOM manipulation, and image processing)
 
