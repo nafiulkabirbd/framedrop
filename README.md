@@ -2,6 +2,12 @@
 
 > **Give your photos the perfect edge. Upload, frame, and download in seconds.**
 
+## 🚀 Live Demo
+
+Experience the live application here: [Click to View Live Site](https://frame-drop.netlify.app/)
+
+---
+
 FrameDrop is a lightweight, responsive, and user-friendly web application designed to help users instantly add beautiful custom borders or photo frames to their pictures. Built using pure frontend technologies, it provides a seamless experience without requiring any server-side processing.
 
 ## ✨ Features
@@ -17,3 +23,9 @@ FrameDrop is a lightweight, responsive, and user-friendly web application design
 - **HTML5** (Structure & Canvas API)
 - **CSS3** (Modern, responsive UI/UX styling)
 - **JavaScript (Vanilla)** (File handling, DOM manipulation, and image processing)
+
+---
+
+## ⭐ Support
+
+If you like this project and find it useful, please consider giving it a **Star**! It helps motivate me to build more cool tools. 🌟
