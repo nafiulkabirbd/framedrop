@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frame Drop - Give your photos the perfect edge.</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo-container">
+        <div class="logo-mark">
+          <div class="logo-inner"></div>
+        </div>
+        <span class="brand-name">Frame Drop</span>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <aside class="controller-panel">
+        <div class="panel-content">
+          <h2>Controls Sidebar</h2>
+
+          <div class="control-group">
+            <label for="photo-upload" class="upload-label">
+              Upload Photograph
+            </label>
+            <input
+              type="file"
+              id="photo-upload"
+              class="file-input"
+              accept="image/*"
+            />
+            <div id="file-name" class="file-name-display">No file selected</div>
+          </div>
+
+          <div class="control-group">
+            <h3 class="group-title">Choose Frame</h3>
+            <div class="frame-selector">
+              <div class="frame-option active" data-frame="frame-1">
+                <img
+                  src="assets/frame-1.png"
+                  alt="Frame 1"
+                  class="frame-thumb"
+                />
+                <span>Frame 1</span>
+              </div>
+              <div class="frame-option" data-frame="frame-2">
+                <img
+                  src="assets/frame-2.png"
+                  alt="Frame 2"
+                  class="frame-thumb"
+                />
+                <span>Frame 2</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <h3 class="group-title">Adjustments</h3>
+
+            <div class="slider-container">
+              <div class="slider-header">
+                <label for="zoom-slider">Zoom</label>
+                <span id="zoom-value" class="slider-value">100%</span>
+              </div>
+              <input
+                type="range"
+                id="zoom-slider"
+                class="styled-slider"
+                min="10"
+                max="200"
+                value="100"
+              />
+            </div>
+
+            <div class="slider-container">
+              <div class="slider-header">
+                <label for="opacity-slider">Opacity</label>
+                <span id="opacity-value" class="slider-value">100%</span>
+              </div>
+              <input
+                type="range"
+                id="opacity-slider"
+                class="styled-slider"
+                min="0"
+                max="100"
+                value="100"
+              />
+            </div>
+          </div>
+
+          <div class="instructions-box">
+            <ul class="instructions-list">
+              <li><span>Scroll canvas</span> to zoom in/out</li>
+              <li><span>Drag</span> to reposition your photo</li>
+              <li><span>Double-click</span> to reset position</li>
+            </ul>
+          </div>
+
+          <div class="control-group">
+            <h3 class="group-title">Export Information</h3>
+
+            <div class="export-row">
+              <div class="export-field">
+                <label>Format</label>
+                <div class="format-toggle">
+                  <input
+                    type="radio"
+                    id="fmt-jpeg"
+                    name="export-format"
+                    value="jpeg"
+                    checked
+                  />
+                  <label for="fmt-jpeg" class="toggle-btn">JPG</label>
+
+                  <input
+                    type="radio"
+                    id="fmt-png"
+                    name="export-format"
+                    value="png"
+                  />
+                  <label for="fmt-png" class="toggle-btn">PNG</label>
+
+                  <input
+                    type="radio"
+                    id="fmt-webp"
+                    name="export-format"
+                    value="webp"
+                  />
+                  <label for="fmt-webp" class="toggle-btn">WebP</label>
+                </div>
+              </div>
+              <div class="export-field">
+                <label>Output Size</label>
+                <div class="size-inputs">
+                  <input
+                    type="text"
+                    id="output-width"
+                    class="styled-input"
+                    value="1920"
+                    placeholder="W"
+                  />
+                  <span>×</span>
+                  <input
+                    type="text"
+                    id="output-height"
+                    class="styled-input"
+                    value="1080"
+                    placeholder="H"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="slider-container">
+              <div class="slider-header">
+                <label for="quality-slider">Quality</label>
+                <span id="quality-value" class="slider-value">90%</span>
+              </div>
+              <input
+                type="range"
+                id="quality-slider"
+                class="styled-slider"
+                min="10"
+                max="100"
+                value="90"
+              />
+            </div>
+
+            <div class="info-box">
+              <span class="info-label">Estimated Size</span>
+              <span class="info-value">~2.4 MB</span>
+            </div>
+
+            <button class="export-button">Export Frame</button>
+          </div>
+        </div>
+      </aside>
+      <section class="preview-panel">
+        <div class="panel-content preview-content">
+          <div class="canvas-wrapper" id="canvas-wrapper">
+            <div class="workspace-area" id="workspace-area">
+              <!-- Photo Background Layer (behind frame) -->
+              <img
+                id="user-photo"
+                class="user-photo"
+                src=""
+                alt="Your Photo"
+                style="display: none"
+              />
+              <div id="photo-placeholder" class="photo-placeholder">
+                Upload a photo to preview
+              </div>
+              <!-- Frame Overlay (on top of photo) -->
+              <img
+                id="active-frame"
+                class="active-frame"
+                src="assets/frame-1.png"
+                alt="Active Frame"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2026 FrameDrop | Developed by
+        <a
+          href="https://github.com/nafiulkabirbd"
+          target="_blank"
+          title="Nafiul Kabir"
+          >Nafiul Kabir</a
+        >
+      </p>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>
